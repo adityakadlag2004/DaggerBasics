@@ -2,19 +2,22 @@ package com.android.daggerbasics
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.android.daggerbasics.components.CarComponent
 import com.android.daggerbasics.components.DaggerCarComponent
 import com.android.daggerbasics.models.Car
-import dagger.internal.DaggerCollections
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var car:Car
-    private lateinit var component:DaggerCarComponent
+public class MainActivity : AppCompatActivity() {
+  //  lateinit var car:Car
+
+    @set:Inject var car: Car? = null
+
+    lateinit var component:DaggerCarComponent
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        component= DaggerCarComponent.create() as DaggerCarComponent
 
-        car=component.getCar()
+        component= DaggerCarComponent.create() as DaggerCarComponent
+        component.inject(this)
+        //car=component.getCar()
     }
 }

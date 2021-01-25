@@ -4,11 +4,11 @@ import android.util.Log
 import javax.inject.Inject
 
 
-class Car
+public class Car
 @Inject
 constructor(var engine: Engine, wheels: Wheels) {
 
-    private val TAG = "Car"
+    val TAG = "Car"
     fun drive() {
         Log.d(TAG, "drive: Driving")
     }
