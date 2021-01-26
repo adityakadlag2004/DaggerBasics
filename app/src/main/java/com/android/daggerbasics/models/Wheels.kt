@@ -3,6 +3,5 @@ package com.android.daggerbasics.models
 import javax.inject.Inject
 
 class Wheels
-@Inject
-constructor(){
+constructor(var rims: Rims,var tyres: Tyres){
 }
