@@ -6,12 +6,12 @@ import javax.inject.Inject
 
 public class Car
 @Inject
-constructor(var engine: Engine, wheels: Wheels) {
+constructor(var engine: Engine, var wheels: Wheels) {
 
 
     val TAG = "Car"
     fun drive() {
-        Log.d(TAG, "drive: Driving")
+        Log.d(TAG, "drive: Driving $wheels")
         engine.start()
     }
 
